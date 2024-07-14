@@ -1,0 +1,192 @@
+<div class="sidebar" data-color="rose" data-background-color="black" data-image="/static/assets/img/sidebar-1.jpg">
+  <div class="logo">
+    <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/django-dashboard-material-pro" class="simple-text logo-mini">
+    </a>
+    <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/django-dashboard-material-pro" class="simple-text logo-normal">
+      碳足迹管理系统
+    </a>
+  </div>
+  <div class="sidebar-wrapper">
+    <div class="user">
+      <div class="photo">
+        <img src="/static/assets/img/faces/avatar.jpg" />
+      </div>
+      <div class="user-info">
+        <a data-toggle="collapse" href="#collapseExample" class="username">
+          <span>
+            {{ request.user.username }}
+            <b class="caret"></b>
+          </span>
+        </a>
+        <div class="collapse" id="collapseExample">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/page-user.html">
+                <span class="sidebar-mini"> MP </span>
+                <span class="sidebar-normal"> 个人资料 </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">
+                <span class="sidebar-mini"> LO </span>
+                <span class="sidebar-normal"> 登出 </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ul class="nav">
+      <li class="nav-item {% if 'index' in segment %} active {% endif %}">
+        <a class="nav-link" href="/">
+          <i class="material-icons">dashboard</i>
+          <p> 面板 </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#projectExamples">
+          <i class="material-icons">content_paste</i>
+          <p> 项目管理
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="projectExamples">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/projects/create">
+                <span class="sidebar-mini"> CP </span>
+                <span class="sidebar-normal"> 创建项目 </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/projects">
+                <span class="sidebar-mini"> PL </span>
+                <span class="sidebar-normal"> 项目列表 </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#processExamples">
+          <i class="material-icons">build</i>
+          <p> 流程管理
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="processExamples">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/processes/create">
+                <span class="sidebar-mini"> CP </span>
+                <span class="sidebar-normal"> 创建流程 </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/processes">
+                <span class="sidebar-mini"> PL </span>
+                <span class="sidebar-normal"> 流程列表 </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#productExamples">
+          <i class="material-icons">shopping_cart</i>
+          <p> 产品系统
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="productExamples">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/products/create">
+                <span class="sidebar-mini"> CPS </span>
+                <span class="sidebar-normal"> 创建产品系统 </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products">
+                <span class="sidebar-mini"> PSL </span>
+                <span class="sidebar-normal"> 产品系统列表 </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#databaseExamples">
+          <i class="material-icons">storage</i>
+          <p> 数据库
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="databaseExamples">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/databases/import">
+                <span class="sidebar-mini"> ID </span>
+                <span class="sidebar-normal"> 导入数据库 </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/databases">
+                <span class="sidebar-mini"> DL </span>
+                <span class="sidebar-normal"> 数据库列表 </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#analysisExamples">
+          <i class="material-icons">assessment</i>
+          <p> 分析工具
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="analysisExamples">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/analysis/impact">
+                <span class="sidebar-mini"> IA </span>
+                <span class="sidebar-normal"> 冲击评估 </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/analysis/sensitivity">
+                <span class="sidebar-mini"> SA </span>
+                <span class="sidebar-normal"> 敏感性分析 </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#settingsExamples">
+          <i class="material-icons">settings</i>
+          <p> 设置
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="settingsExamples">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/settings/users">
+                <span class="sidebar-mini"> UM </span>
+                <span class="sidebar-normal"> 用户管理 </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/settings/system">
+                <span class="sidebar-mini"> SC </span>
+                <span class="sidebar-normal"> 系统配置 </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

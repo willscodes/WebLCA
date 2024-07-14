@@ -1,0 +1,135 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} 用户页面 {% endblock title %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-rose">
+          <div class="card-icon">
+            <i class="material-icons">perm_identity</i>
+          </div>
+          <h4 class="card-title">编辑个人资料 -
+            <small class="category">完成你的个人资料</small>
+          </h4>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label class="bmd-label-floating">用户ID（不可编辑）</label>
+                  <input type="text" class="form-control" value="{{ request.user.id }}" disabled>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="bmd-label-floating">用户名</label>
+                  <input type="text" class="form-control" value="{{ request.user.username }}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">电子邮件地址</label>
+                  <input type="email" class="form-control" value="{{ request.user.email }}">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">名字</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">姓氏</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="bmd-label-floating">地址</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">城市</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">国家</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">邮政编码</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>关于我</label>
+                  <div class="form-group">
+                    <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                    <textarea class="form-control" rows="5"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-rose pull-right">更新资料</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-profile">
+        <div class="card-avatar">
+          <a href="#pablo">
+            <img class="img" src="/static/assets/img/faces/avatar.jpg" />
+          </a>
+        </div>
+        <div class="card-body">
+          <h6 class="card-category text-gray">
+            {{ request.user.username }}
+          </h6>
+          <h4 class="card-title">
+            {{ request.user.email }}
+          </h4>
+          <p class="card-description">
+            Where there is a WILL there is a WAY.
+          </p>
+          <a href="#pablo" class="btn btn-rose btn-round">关注</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      md.checkFullPageBackgroundImage();
+    });
+  </script>
+
+{% endblock javascripts %}
