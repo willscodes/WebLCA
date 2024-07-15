@@ -67,3 +67,5 @@ def lca_api_test(request):
     context = {'segment': 'lca_api_test'}
     html_template = loader.get_template('home/lca_api_test.html')
     return HttpResponse(html_template.render(context, request))
+
+
