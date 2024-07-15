@@ -1,0 +1,43 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}LCA API 测试{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+                <div class="card-icon">
+                    <i class="material-icons">api</i>
+                </div>
+                <h4 class="card-title">LCA API 测试</h4>
+            </div>
+            <div class="card-body">
+                <button id="api-call-btn" class="btn btn-rose">调用 API</button>
+                <div id="api-result" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById("api-call-btn").onclick = function() {
+    fetch("{% url 'lca_api_call' %}")
+        .then(response => response.json())
+        .then(data => {
+            let resultDiv = document.getElementById("api-result");
+            if (data.success) {
+                let processResults = data.results.slice(0, 20);  // 取前3个Process数据
+                let results = processResults.map(item => `<li>Name: ${item.name}</li>`).join("");
+                resultDiv.innerHTML = `<p style="color: green;">OpenLCA 接口调用成功！</p><p style="color: black;">正在使用数据库：</p><ul>${results}</ul>`;
+            } else {
+                resultDiv.innerHTML = `<p style="color: red;">OpenLCA 接口调用失败！错误信息: ${data.error}</p>`;
+            }
+        })
+        .catch(error => {
+            let resultDiv = document.getElementById("api-result");
+            resultDiv.innerHTML = `<p style="color: red;">OpenLCA 接口调用失败！错误信息: ${error.message}</p>`;
+        });
+};
+</script>
+{% endblock %}
