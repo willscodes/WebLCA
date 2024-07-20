@@ -10,6 +10,11 @@ from django.template import loader
 from django.urls import reverse
 import olca_ipc as ipc
 import olca_schema as o
+# views.py
+from django.shortcuts import render
+
+def lca_data_management(request):
+    return render(request, 'lca_data_management.html')
 
 def lca_api_call(request):
     # 创建IPC客户端
